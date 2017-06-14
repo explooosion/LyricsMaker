@@ -2,15 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+
+// Component
 import { AppComponent } from './app.component';
 import { VideoComponent } from './video/video.component';
+import { MenuComponent } from './menu/menu.component';
 
-// Direct
+// Module
 import { YoutubePlayerModule } from 'ng2-youtube-player';
 
 // Pipe
 import { SplitYoutubePipe } from './commons/pipe/split-youtube.pipe';
-import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [

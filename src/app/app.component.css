@@ -33,12 +33,12 @@
   content: '';
   position: relative;
   display: block;
+  margin: -22px auto;
   width: 0;
   height: 0;
   border-style: solid;
   border-width: 8px 0 8px 20px;
   border-color: transparent transparent transparent #dc4b3b;
-  margin: -22px auto;
 }
 
 .header h1 {
