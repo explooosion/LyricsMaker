@@ -13,8 +13,8 @@ export class VideoComponent implements OnInit {
   hidden: boolean = true;
   ytEvent: any;
   player: YT.Player;
-  //id: string = 'https://www.youtube.com/watch?v=qIF8xvSA0Gw';
-  id: string = 'https://www.youtube.com/watch?v=Z09BFrcSewE';
+  id: string = 'https://www.youtube.com/watch?v=qIF8xvSA0Gw';
+  //id: string = 'https://www.youtube.com/watch?v=Z09BFrcSewE';
   title: string;
   state: Number = 0;
   ctime: Number = 0;
@@ -63,7 +63,8 @@ export class VideoComponent implements OnInit {
   }
 
   entry() {
-    var arr = this.ex.split('\n');
-    this.ex_res = this.ex_res + arr[0] + '\n';
+    // var arr = this.ex.split('\n');
+    // this.ex_res = this.ex_res + arr[0] + '\n';
+ 
   }
 }
