@@ -1,0 +1,68 @@
+.header {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  height: 100px;
+  background: #fff;
+  line-height: 56px;
+}
+
+.header .logo {
+  position: relative;
+  float: left;
+  width: 100px;
+  height: 100%;
+  background: #DC4B3B;
+}
+
+.header .logo::before {
+  content: '';
+  position: relative;
+  display: block;
+  margin: 35px auto 0;
+  height: 30px;
+  width: 50px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.header .logo::after {
+  content: '';
+  position: relative;
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 0 8px 20px;
+  border-color: transparent transparent transparent #dc4b3b;
+  margin: -22px auto;
+}
+
+.header h1 {
+  float: left;
+  margin-left: 20px;
+  color: #222;
+}
+
+.container {
+  position: relative;
+  display: block;
+  padding-top: 100px;
+}
+
+.container .nav {
+  position: fixed;
+  width: 240px;
+  height: 100vh;
+  background: #373F48;
+}
+
+.container .content {
+  display: grid;
+  margin-left: 240px;
+  padding: 0 40px;
+  background: #E2EAED;
+}

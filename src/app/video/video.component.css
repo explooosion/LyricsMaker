@@ -1,0 +1,17 @@
+#video {
+  display: block;
+  margin: 30px;
+  padding: 30px;
+  height: 1024px;
+  background: #fff;
+}
+
+input {
+  width: 400px;
+}
+
+.video-box {
+  position: relative;
+  display: block;
+  height: 720px;
+}

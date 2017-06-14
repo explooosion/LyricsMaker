@@ -1,0 +1,9 @@
+<div id="video">
+  <input type="text" [(ngModel)]="id" (change)="changeSource()" placeholder="input the youtube url">
+  <input type="text" [(ngModel)]="ctime">
+
+  <div class="video-box">
+    <youtube-player [videoId]="id | splitYoutube" (ready)="savePlayer($event)" (change)="onStateChange($event)" [hidden]="hidden">
+    </youtube-player>
+  </div>
+</div>
