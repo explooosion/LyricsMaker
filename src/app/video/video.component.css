@@ -1,17 +1,84 @@
 #video {
+  position: relative;
   display: block;
-  margin: 40px;
   padding: 30px;
-  height: 1024px;
   background: #fff;
 }
 
-input {
-  width: 400px;
+#video .row span {
+  display: inline-block;
+  min-width: 100px;
+  text-align: right;
+  font-weight: bold;
+  color: #373F48;
 }
 
 .video-box {
   position: relative;
-  display: block;
-  height: 720px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  width: auto;
+  height: 600px;
+  background: #222;
+}
+
+.video-box youtube-player {
+  width: 100%;
+  height: 100%;
+}
+
+.text.text-auto {
+  width: 70%;
+}
+
+.text:disabled {
+  cursor: not-allowed;
+}
+
+.lyrics-box {
+  display: -webkit-flex;
+  display: flex;
+  margin-top: 20px;
+}
+
+.lyrics-box .lyrics-area {
+  width: calc(50% - 100px);
+}
+
+.lyrics-box .lyrics-area h3 {
+  color: #96A1AD;
+}
+
+.lyrics-box .lyrics-area textarea {
+  overflow-y: scroll;
+  padding: 4px 8px;
+  width: 100%;
+  height: 500px;
+  letter-spacing: 1px;
+  font-size: 1.2em;
+  line-height: 1.8em;
+  color: #373F48;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.lyrics-box .lyrics-control {
+  -webkit-flex: initial;
+  flex: initial;
+  margin-left: 15px;
+  width: 160px;
+}
+
+.lyrics-box .lyrics-control .lyrics-mark {
+  margin-top: 65px;
+  font-weight: bold;
+}
+
+.lyrics-box .lyrics-control .lyrics-mark i {
+  margin-left: 4px;
 }

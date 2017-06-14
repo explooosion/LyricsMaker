@@ -1,5 +1,6 @@
 #menu {
   display: block;
+  padding-top: 20px;
   color: #fff;
 }
 
@@ -17,7 +18,7 @@
   display: block;
   padding: 10px 30px 10px;
   color: #B3BCC6;
-  font-size: 1.5em;
+  font-size: 1.4em;
   text-decoration: none;
   transition: all .2s ease-in-out;
 }
@@ -26,7 +27,8 @@
   margin-right: 20px;
 }
 
-.menu-list li a:hover {
+.menu-list li a:hover,
+.select {
   color: #fff;
   background: #333B43;
 }

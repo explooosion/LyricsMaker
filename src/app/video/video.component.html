@@ -1,9 +1,41 @@
 <div id="video">
-  <input type="text" [(ngModel)]="id" (change)="changeSource()" placeholder="input the youtube url">
-  <input type="text" [(ngModel)]="ctime">
-
   <div class="video-box">
+    <div class="loading" [hidden]="!hidden">
+      <div class="rect1"></div>
+      <div class="rect2"></div>
+      <div class="rect3"></div>
+      <div class="rect4"></div>
+      <div class="rect5"></div>
+    </div>
     <youtube-player [videoId]="id | splitYoutube" (ready)="savePlayer($event)" (change)="onStateChange($event)" [hidden]="hidden">
     </youtube-player>
+  </div>
+  <div class="row">
+    <span>YouTube：</span>
+    <input type="text" [(ngModel)]="id" (change)="changeSource()" placeholder="input the youtube url" class="text text-auto">
+    <!--<button type="button" class="btn btn-orange" (click)="changeSource()">Load</button>-->
+  </div>
+  <div class="row">
+    <span>Title：</span>
+    <input type="text" [(ngModel)]="title" class="text text-auto" disabled>
+  </div>
+  <div class="row">
+    <span>Timer：</span>
+    <input type="text" [(ngModel)]="ctime" class="text" disabled>
+    <span>Quality：</span>
+    <input type="text" [(ngModel)]="quality" class="text" disabled>
+  </div>
+  <div class="row text-center lyrics-box">
+    <div class="lyrics-area">
+      <h3>Before</h3>
+      <textarea cols="50" rows="10" [(ngModel)]="ex" placeholder="Paste Lyrics"></textarea>
+    </div>
+    <div class="lyrics-control">
+      <button type="button" class="btn btn-orange lyrics-mark" (click)="entry()">Mark <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+    </div>
+    <div class="lyrics-area">
+      <h3>After</h3>
+      <textarea cols="50" rows="10" [(ngModel)]="ex_res" placeholder="Result of Lyrics"></textarea>
+    </div>
   </div>
 </div>

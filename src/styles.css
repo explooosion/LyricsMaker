@@ -1,9 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
 @import '~font-awesome/css/font-awesome.css';
+@import './assets/css/custom.css';
+@import './/assets/css/animate.css';
+* {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }

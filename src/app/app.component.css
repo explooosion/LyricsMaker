@@ -44,7 +44,7 @@
 .header h1 {
   float: left;
   margin-left: 20px;
-  color: #222;
+  color: #333;
 }
 
 .container {
@@ -55,7 +55,7 @@
 
 .container .nav {
   position: fixed;
-  width: 240px;
+  width: 260px;
   height: 100vh;
   background: #373F48;
 }
@@ -63,6 +63,6 @@
 .container .content {
   display: grid;
   margin-left: 240px;
-  padding: 0 40px;
+  padding: 40px 80px;
   background: #E2EAED;
 }
