@@ -5,15 +5,15 @@
   left: 0;
   right: 0;
   display: block;
-  height: 100px;
+  height: 80px;
   background: #fff;
-  line-height: 56px;
+  line-height: 40px;
 }
 
 .header .logo {
   position: relative;
   float: left;
-  width: 100px;
+  width: 80px;
   height: 100%;
   background: #DC4B3B;
 }
@@ -22,7 +22,7 @@
   content: '';
   position: relative;
   display: block;
-  margin: 35px auto 0;
+  margin: 26px auto 0;
   height: 30px;
   width: 50px;
   background: #fff;
@@ -50,7 +50,7 @@
 .container {
   position: relative;
   display: block;
-  padding-top: 100px;
+  padding-top: 80px;
 }
 
 .container .nav {
