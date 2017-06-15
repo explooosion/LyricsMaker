@@ -36,10 +36,6 @@
   width: 70%;
 }
 
-.text:disabled {
-  cursor: not-allowed;
-}
-
 .lyrics-box {
   display: -webkit-flex;
   display: flex;
