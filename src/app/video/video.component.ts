@@ -19,11 +19,18 @@ export class VideoComponent implements OnInit {
   state: Number = 0;
   ctime: Number = 0;
   quality: string;
-  ex: string = "";
-  ex_res: string = "";
+
+  txtBefore: string = ""; // TextArea Before
+  txtAfter: string = "";  // TextArea After
+
+  markStart: number = 0;  // 起始標記位址
+  markEnd: number = 0;    // 結尾標記位址
+  markNow: number = 0;    // 當前標記位置
+  markScroll: number = 0; // 當前標記卷軸位置
+
   constructor(private example: Example) {
-    this.ex = example.demo;
-    //this.ex_res = example.demo_res;
+    this.txtBefore = example.demo;
+    //this.txtAfter = example.demo_res;
   }
 
   private showCurrentTime() {
@@ -59,12 +66,36 @@ export class VideoComponent implements OnInit {
     iframe.width = "100%";
     iframe.height = "100%";
 
-    this.player.playVideo();
+    // this.player.playVideo();
   }
 
-  entry() {
-    // var arr = this.ex.split('\n');
-    // this.ex_res = this.ex_res + arr[0] + '\n';
- 
+  markLyrics(areaBefore, areaAfter) {
+
+    var value = areaBefore.value;
+
+    if (this.markEnd < 0) {
+      return alert('Read TO End');
+    }
+    else if (this.markEnd == 0) {
+      this.markStart = 0;
+    } else {
+      this.markStart = this.markNow;
+    }
+
+    this.markEnd = value.indexOf('\n', this.markNow);
+
+    areaBefore.focus();
+
+    this.markScroll = this.markScroll + 30;
+    areaBefore.scrollTop = this.markScroll;
+
+    areaBefore.setSelectionRange(this.markStart, this.markEnd);
+
+    this.markNow = this.markEnd + 1;
+
+    console.log(`${this.markStart} - ${this.markEnd}`);
+    console.log(value.slice(this.markStart, this.markEnd));
+    this.txtAfter = this.txtAfter + value.slice(this.markStart, this.markEnd) + '\n';
+    areaAfter.focus();
   }
 }
