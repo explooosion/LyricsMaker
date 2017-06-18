@@ -63,6 +63,11 @@
   border: 1px solid #ccc;
 }
 
+.lyrics-box .lyrics-area .selLyrics {
+  width: 100%;
+  height: 400px;
+}
+
 .lyrics-box .lyrics-control {
   -webkit-flex: initial;
   flex: initial;

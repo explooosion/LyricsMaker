@@ -20,8 +20,8 @@ export class VideoComponent implements OnInit {
   ctime: Number = 0;
   quality: string;
 
-  txtBefore: string = ""; // TextArea Before
-  txtAfter: string = "";  // TextArea After
+  txtBefore: Array<any> = []; // TextArea Before
+  txtAfter: Array<any> = [];  // TextArea After
 
   markStart: number = 0;  // 起始標記位址
   markEnd: number = 0;    // 結尾標記位址
@@ -29,8 +29,8 @@ export class VideoComponent implements OnInit {
   markScroll: number = 0; // 當前標記卷軸位置
 
   constructor(private example: Example) {
-    this.txtBefore = example.demo;
-    //this.txtAfter = example.demo_res;
+    this.txtBefore = example.demo.split('\n');
+    //this.txtAfter = example.demo_res.split('\n');
   }
 
   private showCurrentTime() {
@@ -42,6 +42,31 @@ export class VideoComponent implements OnInit {
 
   ngOnInit() {
 
+
+  }
+
+  selAfterChange(af) {
+    console.log(af.value);
+    af.selectedIndex = af.length;
+  }
+
+  appendLyrics(before, after) {
+    if (before.selectedIndex < 0) {
+      before.selectedIndex = 0;
+    }
+    this.txtAfter.push(`[${Number(this.ctime).toFixed(2)}] ${before.value}`);
+
+    before.selectedIndex = before.selectedIndex + 1;
+
+    //console.log(after.item(after.length == 0 ? 0 : after.length - 1));
+    //before.item(before.selectedIndex).offsetHeight;
+    //console.log(this.txtAfter);
+    //this.txtAfter[0] = 'asd';
+
+  }
+
+  trackByFn(index, item) {
+    return index; // or item.name
   }
 
   onStateChange(event) {
@@ -66,7 +91,7 @@ export class VideoComponent implements OnInit {
     iframe.width = "100%";
     iframe.height = "100%";
 
-    // this.player.playVideo();
+    this.player.playVideo();
   }
 
   markLyrics(areaBefore, areaAfter) {
@@ -95,7 +120,7 @@ export class VideoComponent implements OnInit {
 
     console.log(`${this.markStart} - ${this.markEnd}`);
     console.log(value.slice(this.markStart, this.markEnd));
-    this.txtAfter = this.txtAfter + value.slice(this.markStart, this.markEnd) + '\n';
+    //this.txtAfter = this.txtAfter + value.slice(this.markStart, this.markEnd) + '\n';
     areaAfter.focus();
   }
 }
