@@ -1,19 +1,18 @@
 <div id="video">
   <div class="video-box">
-    <div class="loading" [hidden]="!hidden">
+    <div class="loading" [hidden]="!playerHidden">
       <div class="rect1"></div>
       <div class="rect2"></div>
       <div class="rect3"></div>
       <div class="rect4"></div>
       <div class="rect5"></div>
     </div>
-    <youtube-player [videoId]="id | splitYoutube" (ready)="savePlayer($event)" (change)="onStateChange($event)" [hidden]="hidden">
+    <youtube-player [videoId]="id | splitYoutube" (ready)="savePlayer($event)" (change)="onStateChange($event)" [hidden]="playerHidden">
     </youtube-player>
   </div>
   <div class="row">
     <span>YouTube：</span>
     <input type="text" [(ngModel)]="id" (change)="changeSource()" placeholder="input the youtube url" class="text text-auto">
-    <!--<button type="button" class="btn btn-orange" (click)="changeSource()">Load</button>-->
   </div>
   <div class="row">
     <span>Title：</span>
@@ -28,21 +27,19 @@
   <div class="row text-center lyrics-box">
     <div class="lyrics-area">
       <h3>Before</h3>
-      <select #selBefore class="selLyrics" multiple="multiple">
+      <select #objB class="selLyrics" multiple="multiple">
         <option [value]="value" *ngFor="let value of txtBefore ; trackBy:trackByFn ; let key=index" style="padding:4px;font-size:16px;">{{ value}}</option>
       </select>
-      <!--<textarea #areaBefore cols="50" rows="10" [(ngModel)]="txtBefore" placeholder="Paste Lyrics"></textarea>-->
     </div>
     <div class="lyrics-control">
-      <button type="button" class="btn btn-orange lyrics-mark" (click)="appendLyrics(selBefore,selAfter)">Mark <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
-      <!--<button type="button" class="btn btn-orange lyrics-mark" (click)="markLyrics(areaBefore,areaAfter)">Mark <i class="fa fa-arrow-right" aria-hidden="true"></i></button>-->
+      <button type="button" class="btn btn-orange lyrics-mark" (click)="appendLyrics(objB,objA)">Mark <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
     </div>
     <div class="lyrics-area">
       <h3>After</h3>
-      <select #selAfter class="selLyrics" multiple="multiple">
-        <option [value]="value" *ngFor="let value of txtAfter ; trackBy:trackByFn ; let key=index" style="padding:4px;font-size:16px;">{{ value }}</option>
+      <select #objA class="selLyrics" multiple="multiple">
+        <option [value]="value" *ngFor="let value of txtAfter ; let key=index" style="padding:4px;font-size:16px;">{{ value }}</option>
       </select>
-      <!--<textarea #areaAfter cols="50" rows="10" [(ngModel)]="txtAfter" placeholder="Result of Lyrics"></textarea>-->
+      <span></span>
     </div>
   </div>
 </div>
