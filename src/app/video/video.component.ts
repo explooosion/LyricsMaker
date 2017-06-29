@@ -11,8 +11,6 @@ import { Example } from '../commons/lyrics/example';
 })
 export class VideoComponent implements OnInit {
 
-  format: FormatTime;
-
   id: string = 'https://www.youtube.com/watch?v=qIF8xvSA0Gw';
   player: YT.Player;
   playerHidden: boolean = true;   // loading時隱藏

@@ -1,6 +1,6 @@
 export class FormatTime {
 
-    getTimeStyle = function () {
-        return 'a';
+    getTimeStyle = function (time) {
+        return time + 1000;
     }
 }
