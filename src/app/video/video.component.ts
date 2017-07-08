@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { FormatTime } from '../commons/class/format-time';
 import { Example } from '../commons/lyrics/example';
+import { ConvertTime } from '../commons/class/convert-time';
 
 @Component({
   selector: 'app-video',
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.css'],
-  providers: [Example]
+  providers: [Example, ConvertTime]
 })
 export class VideoComponent implements OnInit {
 
@@ -23,12 +23,7 @@ export class VideoComponent implements OnInit {
   txtBefore: Array<any> = [];     // [前] 歌詞內容
   txtAfter: Array<any> = [];      // [後] 歌詞內容
 
-  markStart: number = 0;          // 起始標記位址
-  markEnd: number = 0;            // 結尾標記位址
-  markNow: number = 0;            // 當前標記位置
-  markScroll: number = 0;         // 當前標記卷軸位置
-
-  constructor(private example: Example) {
+  constructor(private example: Example, private ct: ConvertTime) {
     this.txtBefore = example.demo.split('\n');
   }
 
@@ -79,7 +74,7 @@ export class VideoComponent implements OnInit {
     }
 
     // 塞入新歌詞 - [時間][歌詞]
-    this.txtAfter.push(`[${Number(this.ctime).toFixed(2)}] ${b.value}`);
+    this.txtAfter.push(`[${this.ct.custom(this.ctime)}] ${b.value}`);
 
     // 選取下一行
     b.selectedIndex = b.selectedIndex + 1;
@@ -88,6 +83,7 @@ export class VideoComponent implements OnInit {
     setTimeout(() => {
       a.selectedIndex = a.length <= 0 ? 0 : a.length - 1;
     }, 1);
+
   }
 
 }
