@@ -36,9 +36,6 @@ export class VideoComponent implements OnInit {
     iframe.width = "100%";
     iframe.height = "100%";
     this.player.playVideo();
-
-    //var a = this.format.getTimeStyle();
-    //console.log(a);
   }
 
   // Youtube Player - 狀態改變
@@ -86,4 +83,17 @@ export class VideoComponent implements OnInit {
 
   }
 
+  // 按鈕群組
+  controlPause() {
+    this.player.pauseVideo();
+
+  }
+
+  controlPlay() {
+    this.player.playVideo();
+  }
+
+  controlStop() {
+    this.player.stopVideo();
+  }
 }
