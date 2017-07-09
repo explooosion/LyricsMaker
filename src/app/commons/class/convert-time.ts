@@ -1,29 +1,30 @@
 export class ConvertTime {
 
-    private min: String = '00';
-    private sec: String = '00';
-    private ns: String = '0';
+    private min: string = '00';
+    private sec: string = '00';
+    private ns: string = '00';
 
-    custom(time) {
+    public custom(time) {
         this.setNs(time);
         this.setSec(time);
         this.setMin(time);
+        this.addZero(this.min);
         return `${this.min}:${this.sec}.${this.ns}`;
     }
 
-    private setNs(time) {
-        this.ns = String(Number(time).toFixed(2)).split('.')[1];
+    private setNs(time: number) {
+        this.ns = this.addZero(time.toFixed(2).split('.')[1]);
     }
 
-    private setSec(time) {
-        this.sec = String(Number(Number(time).toFixed(0)) % 60);
+    private setSec(time: number) {
+        this.sec = this.addZero(String(Math.floor(time) % 60));
     }
 
-    private setMin(time) {
-        this.min = String(Math.round(Number(Number(time).toFixed(0)) / 60));
+    private setMin(time: number) {
+        this.min = this.addZero(String(Math.floor(Number(time.toFixed(0)) / 60)));
     }
 
-    private addZero(time) {
-        //return String(time).length > 1 ? '0' + time : time;
+    private addZero(time: String) {
+        return String(time.length > 1 ? time : '0' + time);
     }
 }
